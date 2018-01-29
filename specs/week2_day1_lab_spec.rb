@@ -114,4 +114,50 @@ class LibraryTest < Minitest::Test
       assert_equal(book, book_info)
     end
 
+      def test_get_rental_details
+        book ={
+          title: "Lord of the rings",
+          rental_details: {
+            student_name: "Jeff",
+            date: "29/01/2018"
+          }
+        }
+
+        library = Library.new([book])
+        book_info =
+        library.get_rental_details("Lord of the rings")
+
+        assert_equal(book[:rental_details], book_info)
+    end
+
+    def test_add_new_book_to_library
+      book ={
+        title: "Lord of the rings",
+        rental_details: {
+          student_name: "Jeff",
+          date: "29/01/2018"
+        }
+      }
+
+      library = Library.new([book])
+      new_book = library.add_new_book("lord of the flies")
+      assert_equal(2, new_book)
+    end
+
+    def test_update_rental_details
+    book ={
+      title: "Lord of the rings",
+      rental_details: {
+        student_name: "Jeff",
+        date: "29/01/2018"
+      }
+    }
+    library = Library.new([book])
+    new_book_info = library.get_rental_details("Lord of the rings")
+    assert_equal({student_name:"Jill", date:"30/01/18"}, update_rental_details(:title, :student_name, :date))
   end
+
+  # last one has stumped me
+
+
+end

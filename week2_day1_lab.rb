@@ -80,8 +80,39 @@ class Library
     for book in @books
       if book[:title] == title
         return book
+      end
     end
-  end
   return nil
 end
+
+ def get_rental_details(title)
+   for book in @books
+     if book[:title] == title
+       return book[:rental_details]
+      end
+    end
+  return nil
+end
+
+def add_new_book(new_book)
+  new_book= {
+    title: "lord of the flies",
+    rental_details:{
+      student_name:" ",
+      date: " "
+    }
+  }
+  @books.push new_book
+  return @books.length
+end
+
+def update_rental_details(title, student_name, date)
+  if book in @books
+    get_info_for_title(title)
+    get_rental_details(title)
+  end
+  end
+end
+# last one has stumped me
+
 end
