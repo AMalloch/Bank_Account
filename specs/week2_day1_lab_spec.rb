@@ -153,8 +153,8 @@ class LibraryTest < Minitest::Test
       }
     }
     library = Library.new([book])
-    new_book_info = library.get_rental_details("Lord of the rings")
-    assert_equal({student_name:"Jill", date:"30/01/18"}, update_rental_details(:title, :student_name, :date))
+    new_book_info = library.update_rental_details("Lord of the rings", book[:rental_details][:student_name], book[:rental_details][:date])
+    assert_equal({student_name:"Jill", date:"30/01/18"}, new_book_info)
   end
 
   # last one has stumped me

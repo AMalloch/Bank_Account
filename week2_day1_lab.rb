@@ -107,11 +107,15 @@ def add_new_book(new_book)
 end
 
 def update_rental_details(title, student_name, date)
-  if book in @books
-    get_info_for_title(title)
-    get_rental_details(title)
-  end
-  end
+ # needs to loop over to find 3 pieces of info then input a new student name and date
+ # once found
+  for book in @books
+    if [:title] == title
+       [:student_name] == student_name
+       [:date] == date
+     end
+     return new_book_info
+   end
 end
 # last one has stumped me
 
